@@ -75,6 +75,10 @@ function isTheme(value: unknown): value is 'light' | 'dark' {
   return value === 'light' || value === 'dark';
 }
 
+function isCategorySelection(value: unknown): value is string {
+  return typeof value === 'string' && value.trim().length > 0;
+}
+
 function isCart(value: unknown): value is CartItem[] {
   return (
     Array.isArray(value) &&
@@ -298,7 +302,7 @@ function Catalog() {
   const [productsFromCache, setProductsFromCache] = useState(false);
   const [categoriesFromCache, setCategoriesFromCache] = useState(false);
   const [search, setSearch] = useState('');
-  const [category, setCategory] = useState(() => readStored(storageKeys.category, 'all'));
+  const [category, setCategory] = useState(() => readStored(storageKeys.category, 'all', isCategorySelection));
   const [sort, setSort] = useState<SortOption>(() => readStored(storageKeys.sort, 'default', isSortOption));
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     const previewTheme = new URLSearchParams(window.location.search).get('theme');
