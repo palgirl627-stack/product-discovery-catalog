@@ -154,6 +154,89 @@
   box-shadow: var(--shadow-card);
 }
 
+.auth-shell {
+  background:
+    radial-gradient(circle at 10% 20%, hsl(var(--accent) / .32), transparent 25rem),
+    radial-gradient(circle at 90% 80%, hsl(var(--primary) / .08), transparent 22rem);
+}
+
+.auth-intro {
+  background:
+    linear-gradient(145deg, hsl(var(--accent) / .6), hsl(var(--card) / .2)),
+    hsl(var(--muted) / .65);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: .45rem;
+  color: hsl(var(--foreground));
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+
+.form-input {
+  width: 100%;
+  min-height: 3rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: .8rem;
+  background: hsl(var(--muted) / .55);
+  color: hsl(var(--foreground));
+  padding: .75rem .9rem;
+  font-size: .875rem;
+  outline: none;
+  transition: border-color .18s ease, background-color .18s ease, box-shadow .18s ease;
+}
+
+.form-input:focus {
+  border-color: hsl(var(--primary));
+  background: hsl(var(--card));
+  box-shadow: 0 0 0 3px hsl(var(--ring) / .16);
+}
+
+.dashboard-card {
+  background: hsl(var(--card) / .88);
+  border: 1px solid hsl(var(--card-border));
+  box-shadow: var(--shadow-card);
+}
+
+.quick-link {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: .7rem;
+  border-radius: .8rem;
+  background: hsl(var(--muted) / .62);
+  padding: .85rem 1rem;
+  text-align: left;
+  font-size: .8rem;
+  font-weight: 800;
+  transition: background-color .18s ease, transform .18s ease;
+}
+
+.quick-link:hover {
+  background: hsl(var(--accent));
+  transform: translateY(-1px);
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  border-radius: 999px;
+  padding: .6rem .8rem;
+  color: hsl(var(--muted-foreground));
+  font-size: .75rem;
+  font-weight: 800;
+  transition: color .18s ease, background-color .18s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: hsl(var(--muted));
+  color: hsl(var(--foreground));
+}
+
 .category-pill { transition: background-color .18s ease, color .18s ease, transform .18s ease; }
 .category-pill:hover { transform: translateY(-1px); }
 
