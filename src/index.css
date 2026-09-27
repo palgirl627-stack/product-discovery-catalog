@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-card-border: hsl(var(--card-border));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-popover-border: hsl(var(--popover-border));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+  --radius-lg: var(--radius);
+}
+
+:root {
+  --background: 39 50% 96%;
+  --foreground: 178 24% 18%;
+  --border: 38 23% 86%;
+  --input: 38 23% 82%;
+  --ring: 15 63% 50%;
+  --card: 40 43% 98%;
+  --card-foreground: 178 24% 18%;
+  --card-border: 38 27% 87%;
+  --popover: 40 43% 98%;
+  --popover-foreground: 178 24% 18%;
+  --popover-border: 38 27% 87%;
+  --primary: 15 63% 50%;
+  --primary-foreground: 40 43% 98%;
+  --secondary: 172 24% 90%;
+  --secondary-foreground: 178 24% 18%;
+  --muted: 38 29% 91%;
+  --muted-foreground: 178 11% 43%;
+  --accent: 172 31% 84%;
+  --accent-foreground: 178 24% 18%;
+  --destructive: 4 63% 47%;
+  --destructive-foreground: 40 43% 98%;
+  --sidebar: 178 24% 18%;
+  --sidebar-foreground: 40 43% 98%;
+  --sidebar-border: 178 18% 27%;
+  --app-font-sans: 'Manrope', sans-serif;
+  --app-font-serif: 'DM Serif Display', Georgia, serif;
+  --app-font-mono: 'SFMono-Regular', Consolas, monospace;
+  --radius: 1rem;
+  --shadow-soft: 0 12px 35px rgba(83, 75, 57, 0.08);
+  --shadow-card: 0 6px 18px rgba(83, 75, 57, 0.07);
+}
+
+.dark {
+  --background: 180 18% 11%;
+  --foreground: 39 31% 92%;
+  --border: 178 13% 25%;
+  --input: 178 13% 29%;
+  --ring: 15 63% 60%;
+  --card: 178 18% 14%;
+  --card-foreground: 39 31% 92%;
+  --card-border: 178 13% 25%;
+  --popover: 178 18% 14%;
+  --popover-foreground: 39 31% 92%;
+  --popover-border: 178 13% 25%;
+  --primary: 15 67% 61%;
+  --primary-foreground: 180 18% 11%;
+  --secondary: 177 19% 22%;
+  --secondary-foreground: 39 31% 92%;
+  --muted: 178 16% 21%;
+  --muted-foreground: 39 14% 67%;
+  --accent: 177 25% 27%;
+  --accent-foreground: 39 31% 92%;
+  --destructive: 4 65% 57%;
+  --destructive-foreground: 180 18% 11%;
+  --sidebar: 178 20% 9%;
+  --sidebar-foreground: 39 31% 92%;
+  --sidebar-border: 178 13% 22%;
+  --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.25);
+  --shadow-card: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { min-width: 320px; }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    margin: 0;
+  }
+  button, input, select { font: inherit; }
+  button { cursor: pointer; }
+  :focus-visible { outline: 3px solid hsl(var(--ring) / .4); outline-offset: 3px; }
+}
+
+@layer utilities {
+  .catalog-shell { min-height: 100dvh; }
+  .font-display { font-family: var(--app-font-serif); }
+  .text-balance { text-wrap: balance; }
+  .hide-scrollbar { scrollbar-width: none; }
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+}
+
+.catalog-shell {
+  background:
+    radial-gradient(circle at 92% 5%, hsl(var(--accent) / .38), transparent 28rem),
+    radial-gradient(circle at 4% 24%, hsl(var(--primary) / .08), transparent 24rem),
+    hsl(var(--background));
+}
+
+.topbar {
+  background: hsl(var(--background) / .88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid hsl(var(--border) / .8);
+}
+
+.brand-mark {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 4px 4px 0 hsl(var(--foreground) / .12);
+}
+
+.product-card {
+  background: hsl(var(--card) / .92);
+  border: 1px solid hsl(var(--card-border));
+  box-shadow: var(--shadow-card);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); border-color: hsl(var(--primary) / .45); }
+.product-card:focus-within { border-color: hsl(var(--primary)); }
+
+.product-image-wrap { background: hsl(var(--muted) / .55); }
+.product-image { mix-blend-mode: multiply; transition: transform .35s ease; }
+.dark .product-image { mix-blend-mode: normal; }
+.product-card:hover .product-image { transform: scale(1.045); }
+
+.control-surface {
+  background: hsl(var(--card) / .75);
+  border: 1px solid hsl(var(--card-border));
+  box-shadow: var(--shadow-card);
+}
+
+.category-pill { transition: background-color .18s ease, color .18s ease, transform .18s ease; }
+.category-pill:hover { transform: translateY(-1px); }
+
+.skeleton {
+  background: linear-gradient(100deg, hsl(var(--muted)) 20%, hsl(var(--card)) 38%, hsl(var(--muted)) 56%);
+  background-size: 250% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+@keyframes shimmer { from { background-position: 120% 0; } to { background-position: -80% 0; } }
+@keyframes rise-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.rise-in { animation: rise-in .45s ease both; }
+
+.drawer-backdrop { background: hsl(178 24% 10% / .46); backdrop-filter: blur(3px); }
+.drawer { box-shadow: -20px 0 45px hsl(178 24% 10% / .18); animation: drawer-in .25s ease both; }
+@keyframes drawer-in { from { transform: translateX(100%); } to { transform: translateX(0); } }
+
+.dialog-backdrop { background: hsl(178 24% 10% / .5); backdrop-filter: blur(5px); }
+.dialog-card { animation: dialog-in .2s ease both; }
+@keyframes dialog-in { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
